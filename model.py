@@ -8,7 +8,7 @@ from keras.layers import Flatten, Dense, Lambda, Convolution2D, MaxPooling2D, Ac
 from keras.optimizers import Adam
 from keras.callbacks import History
 
-correction = 0.30
+correction = 0.20
 
 # Load Udacity's driving log data
 lines = []
@@ -34,6 +34,20 @@ for line in lines:
     measurements.append(measurement)
     measurements.append(measurement + correction)
     measurements.append(measurement - correction)
+
+# Data augmentation - let's "drive" in the opposite direction by flipping all images and measurements
+augmented_images = []
+augmented_measurements = []
+for image, measurement in zip(images, measurements):
+    augmented_images.append(image)
+    augmented_measurements.append(measurement)
+    flipped_image = cv2.flip(image, 1)
+    flipped_measurement = measurement * -1.0
+    augmented_images.append(flipped_image)
+    augmented_measurements.append(flipped_measurement)
+ 
+X_train = np.array(augmented_images)
+y_train = np.array(augmented_measurements)
 
 # LeNet
 model = Sequential()
