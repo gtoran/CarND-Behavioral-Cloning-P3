@@ -8,7 +8,7 @@ from keras.layers import Flatten, Dense, Lambda, Convolution2D, MaxPooling2D, Ac
 from keras.optimizers import Adam
 from keras.callbacks import History
 
-correction = 0.20
+correction = 0.15
 
 # Load Udacity's driving log data
 lines = []
