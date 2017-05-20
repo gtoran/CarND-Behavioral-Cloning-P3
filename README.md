@@ -18,8 +18,8 @@ Run this ipython notebook with a compatible GPU in order to obtain faster traini
 
 Resolution
 ---
-Please review [my writeup](https://github.com/gtoran/CarND-Behavior-Cloning-P3/blob/master/writeup.md) for resolution details and further information.
+Please review [my writeup](https://github.com/gtoran/CarND-Behavioral-Cloning-P3/blob/master/writeup_report.md) for resolution details and further information.
 
 Others
 ---
-The original README.md can be found [here](https://github.com/gtoran/CarND-Behavior-Cloning-P3/blob/master/ref/README.md).
+The original README.md can be found [here](https://github.com/gtoran/CarND-Behavioral-Cloning-P3/blob/master/ref/README.md).
