@@ -124,7 +124,7 @@ In any case, since my manual driving was a little bit erratic, I decided to use 
 * Model generator that allows selection of data without loading entire dataset in memory
 * Higher memory environment
 
-Without this additional augmentation, the amount of data samples for this training set is just under 39000.
+Without this additional augmentation, the amount of data samples for this training set is just under 39000, and can be run without memory issues on AWS' GPU instance.
 
 ### Areas of improvement
 
@@ -133,3 +133,11 @@ Without this additional augmentation, the amount of data samples for this traini
 ### Observations
 
 * Removing centered steering angle measurements and camera frames reduced my training set by aprox. 3K images, but resulted in overfitting and erroneous driving behavior afterwards.
+* At the end of the included video there is trial run on Track 2 that results in an immediate crash after starting. This may be due to a mismatch between image processing pointed out by my reviewer (BGR vs RGB), which is unnoticeable in Track 1 due to the center lane driving data.
+* Project received good marks on first review with the following suggestions:
+** [This research](http://lamda.nju.edu.cn/weixs/project/CNNTricks/CNNTricks.html) can help improve the model even further.
+** Try using RELU instead of ELU.
+** Try to crop images before normalization.
+** Spatial dropout might provide even better results.
+** Try [this proposal](https://arxiv.org/abs/1412.6806) made by another reviewer that involves using only CONV layers.
+** Implement [ModelCheckpoint](https://keras.io/callbacks/#modelcheckpoint) to optimize the amount of epoch.
